@@ -52,7 +52,8 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+        redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      end
     end
 
     def correct_user
@@ -63,5 +64,4 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-
 end
