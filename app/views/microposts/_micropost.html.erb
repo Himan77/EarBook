@@ -1,5 +1,10 @@
 <li>
-  <span class="content"><%= micropost.content %></span>
+  <span class="content"><%= (micropost.content.nil? ? "" : micropost.content) +", "+ (micropost.artist.nil? ? "" : micropost.artist)+ "," +"     YouTube_Views: " + (micropost.views.nil? ? "0" : micropost.views.to_s) %></span>
+  <br>
+  <%= link_to image_tag("http://img.youtube.com/vi/"+(micropost.video_id.nil? ? "" : micropost.video_id)+"/0.jpg", size: "100") %>
+
+  <%= link_to "https://www.youtube.com/watch?v="+(micropost.video_id.nil? ? "" : micropost.video_id) , "https://www.youtube.com/watch?v="+(micropost.video_id.nil? ? "" : micropost.video_id) %>
+</br>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
   </span>
@@ -8,4 +13,14 @@
                                      data: { confirm: "You sure?" },
                                      title: micropost.content %>
   <% end %>
+  <% if song_already_in_playlist(micropost) %>
+
+    <%= link_to "Add to Playlist", "/micropost/add_to_playlist/#{micropost.id}", method: :Post,
+      
+                                     title: micropost.content %>
+  <% end %>
+  
+
 </li>
+
+

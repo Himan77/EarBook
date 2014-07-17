@@ -8,6 +8,9 @@ gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'protected_attributes'
+gem 'google-api-client', '>0.7'
+gem 'trollop'
+gem 'json'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'

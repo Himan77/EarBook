@@ -237,6 +237,9 @@ input {
 }
 .content {
   display: block;
+  box-sizing: border-box;
+  width: 150%;
+  float: left;
 }
 .timestamp {
   color: $grayLight;

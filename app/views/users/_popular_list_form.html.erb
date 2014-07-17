@@ -1,0 +1,9 @@
+  <div class="span8">
+    <h4> Popular PlayLists</h4>
+    <% if @allusers.any? %>
+      <ul class="users">
+        <%= render @allusers %>
+      </ul>
+     
+    <% end %>
+  </div>

@@ -20,6 +20,22 @@ module SessionsHelper
     user == current_user
   end
   
+  def song_already_in_playlist(micropost)
+    
+    #content = "SELECT micropost.content FROM current_user.microposts.all"
+    #                    where( micropost.content = :content)
+
+    temp = current_user.microposts.where(content: micropost.content)
+   
+    if  !temp.any?
+      return true
+    else 
+      return false
+    end
+    
+  end 
+
+  
 
   def signed_in_user
     unless signed_in?

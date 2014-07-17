@@ -6,7 +6,7 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
   
-  default_scope order: 'microposts.created_at DESC'
+  default_scope order: 'microposts.views DESC'
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships
@@ -15,8 +15,22 @@ class Micropost < ActiveRecord::Base
           user_id: user.id)
   end
 
-  def destroy
+  def self.dedupe
+    # find all models and group them on keys which should be common
+    grouped = all.group_by{|micropost| [micropost.content,micropost.user_id] }
+    
+    grouped.values.each do |duplicates|
+      # the first one we want to keep right?
+      puts duplicates
+      duplicates.shift # or pop for last one
+      # if there are any more left, they are duplicates
+      # so delete all of them
+      duplicates.each{|double| double.destroy} # duplicates can now be destroyed
+    end
+    
   end
 
   
 end
+
+#Micropost.dedupe

@@ -6,12 +6,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    Micropost.dedupe
     @microposts = @user.microposts.paginate(page: params[:page])
   end
+
+
 
   def following
     @title = "Following"
     @user = User.find(params[:id])
+
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
@@ -37,6 +41,32 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def Add_to_playlist
+
+    @micropost = Micropost.find_by_id(params[:id])
+    post = Micropost.new do |p|
+      p.content = @micropost.content
+      p.artist = @micropost.artist
+      p.views = @micropost.views
+      p.video_id = @micropost.video_id
+      p.user_id = current_user.id
+    end
+    post.save!
+    temp = @micropost.user_id
+    user = User.find(temp)
+    puts user
+    
+    point = user.points + 1
+    #puts point
+    #debugger
+    user.update_attribute(:points,point)
+    
+
+    # redirect_to root_url
+    redirect_to :back
+
+  end
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -50,6 +80,23 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def uploadfile
+    if params[:users] == nil
+      redirect_to current_user
+
+    
+    else
+      #puts datafile
+      User.save(params[:users])
+      #User.views
+      load('youtube.rb')
+      
+      current_user.populate(current_user)
+      redirect_to current_user
+    end
+    
   end
 
   def update

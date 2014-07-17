@@ -1,0 +1,31 @@
+Input:
+1. New user creates an account. Signs in. 
+	-- User model 
+2. Uploads the list of his songs playlist.
+	-- A module which allows the uploading of list of songs and populating the database.
+
+Output:
+1. Gets a list of songs sorted on the basis of YouTube views.
+2. A status feed which lists the updates made by other users who are being followed.
+	-- Using the micropost model. Requires another module which implements "Add to Playlist" feature.
+3. Links of list of users who have similar playlist.
+4. Points 
+	-- based on how much of his songs have been added to playlist by his followers.
+
+Process:
+1. YouTube views are used to sort the uploaded list of songs.
+	-- A module which returns the number of YouTube views, video_id etc. given the song and artist name.
+		-- Involves retrieving the video id and number of views.
+		-- Selecting the video id having the maximum number of views.
+2. User's playlist is compared with other users playlists and a recommendation list of other users is produced.
+	-- A module which compares a user's playlist with all other users playlists.
+	-- Only those who are not being followed currently are listed.
+	
+Assumption: People having similar taste of songs tend to maintain similar list of songs. 
+3. "Add to Playlist" feature.
+	-- A module to add the selected song to the user's playlist and incrementing the Points of the one who had posted it.
+
+Other features:
+1. A link to most popular playlists of users is listed. 
+	-- based on points scored.
+2. One can like recommend and comment on others playlists.

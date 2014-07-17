@@ -1,0 +1,6 @@
+<%= form_for(:users, :url => {:action => "uploadfile" }, :multipart => true) do |form| %>
+  <h4><%= form.label :datafile, "Select Playlist" %></h4>
+  <p><%= form.file_field 'datafile' %></p>
+  <%= form.submit "Upload", class: "btn btn-large btn-primary" %>
+<% end %>
+

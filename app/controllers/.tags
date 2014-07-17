@@ -1,0 +1,38 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ApplicationController	application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+MicropostsController	microposts_controller.rb	/^class MicropostsController < ApplicationController$/;"	c
+RelationshipsController	relationship_controller.rb	/^class RelationshipsController < ApplicationController$/;"	c
+SessionsController	sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+StaticPagesController	static_pages_controller.rb	/^class StaticPagesController < ApplicationController$/;"	c
+UsersController	users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+about	static_pages_controller.rb	/^  def about$/;"	f	class:StaticPagesController
+admin_user	users_controller.rb	/^    def admin_user$/;"	f	class:UsersController
+contact	static_pages_controller.rb	/^  def contact$/;"	f	class:StaticPagesController
+correct_user	microposts_controller.rb	/^    def correct_user$/;"	f	class:MicropostsController
+correct_user	users_controller.rb	/^    def correct_user$/;"	f	class:UsersController
+create	microposts_controller.rb	/^  def create$/;"	f	class:MicropostsController
+create	relationship_controller.rb	/^  def create$/;"	f	class:RelationshipsController
+create	sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	users_controller.rb	/^  def create$/;"	f	class:UsersController
+destroy	microposts_controller.rb	/^  def destroy$/;"	f	class:MicropostsController
+destroy	relationship_controller.rb	/^  def destroy$/;"	f	class:RelationshipsController
+destroy	sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+destroy	users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+edit	users_controller.rb	/^  def edit$/;"	f	class:UsersController
+followers	users_controller.rb	/^  def followers$/;"	f	class:UsersController
+following	users_controller.rb	/^  def following$/;"	f	class:UsersController
+handle_unverified_request	application_controller.rb	/^  def handle_unverified_request$/;"	f	class:ApplicationController
+help	static_pages_controller.rb	/^  def help$/;"	f	class:StaticPagesController
+home	static_pages_controller.rb	/^  def home$/;"	f	class:StaticPagesController
+index	users_controller.rb	/^  def index$/;"	f	class:UsersController
+new	sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
+new	users_controller.rb	/^  def new$/;"	f	class:UsersController
+show	users_controller.rb	/^  def show$/;"	f	class:UsersController
+signed_in_user	users_controller.rb	/^    def signed_in_user$/;"	f	class:UsersController
+update	users_controller.rb	/^  def update$/;"	f	class:UsersController
+uploadfile	users_controller.rb	/^  def uploadfile$/;"	f	class:UsersController
