@@ -25,7 +25,7 @@ module SessionsHelper
     #content = "SELECT micropost.content FROM current_user.microposts.all"
     #                    where( micropost.content = :content)
 
-    temp = current_user.microposts.where(content: micropost.content)
+    temp = current_user.microposts.where(video_id: micropost.video_id)
    
     if  !temp.any?
       return true

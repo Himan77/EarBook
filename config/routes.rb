@@ -22,7 +22,8 @@ SampleApp::Application.routes.draw do
   get '/about',   to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
   post '/uploadfile', to: 'users#uploadfile'
-  post '/micropost/add_to_playlist/:id', to: 'users#Add_to_playlist' 
+  post '/micropost/add_to_playlist/:id', to: 'users#Add_to_playlist'
+  #get '/playlist_icon', to: 'public/data/playlist_automatic_new_42.png' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

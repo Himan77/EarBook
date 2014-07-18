@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
   def self.save(users)
     
-    name =  users['datafile'].original_filename
+    name =  "playlist"#users['datafile'].original_filename
     directory = "public/data/"
     # create the file path
     path = File.join(directory, name)

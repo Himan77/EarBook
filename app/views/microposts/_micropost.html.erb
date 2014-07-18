@@ -1,23 +1,26 @@
 <li>
-  <span class="content"><%= (micropost.content.nil? ? "" : micropost.content) +", "+ (micropost.artist.nil? ? "" : micropost.artist)+ "," +"     YouTube_Views: " + (micropost.views.nil? ? "0" : micropost.views.to_s) %></span>
-  <br>
-  <%= link_to image_tag("http://img.youtube.com/vi/"+(micropost.video_id.nil? ? "" : micropost.video_id)+"/0.jpg", size: "100") %>
+  <%= link_to image_tag("http://img.youtube.com/vi/"+(micropost.video_id.nil? ? "" : micropost.video_id)+"/0.jpg", size: "100") %> 
+  <%= link_to (micropost.content.nil? ? "" : micropost.content) , "https://www.youtube.com/watch?v="+(micropost.video_id.nil? ? "" : micropost.video_id) %>
+  <%= " by "+ (micropost.artist.nil? ? "" : micropost.artist)+ ", " + (micropost.views.nil? ? "0" : micropost.views.to_s)+" views" %>
+  
+  
 
-  <%= link_to "https://www.youtube.com/watch?v="+(micropost.video_id.nil? ? "" : micropost.video_id) , "https://www.youtube.com/watch?v="+(micropost.video_id.nil? ? "" : micropost.video_id) %>
-</br>
+ 
+<br>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
   </span>
   <% if current_user?(micropost.user) %>
-    <%= link_to "delete", micropost, method: :delete,
+    <%= link_to image_tag("http://icons.iconarchive.com/icons/iconshock/vista-general/24/trash-icon.png"), micropost, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: micropost.content %>
   <% end %>
   <% if song_already_in_playlist(micropost) %>
-
-    <%= link_to "Add to Playlist", "/micropost/add_to_playlist/#{micropost.id}", method: :Post,
+    
+    <%= link_to image_tag("/assets/playlist_automatic_new_42.png"), "/micropost/add_to_playlist/#{micropost.id}", method: :Post,
       
                                      title: micropost.content %>
+    
   <% end %>
   
 

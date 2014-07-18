@@ -186,7 +186,7 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 70%;
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
@@ -253,4 +253,21 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* Subscibe */
+
+.scribe{
+  background-image: linear-gradient(to top, #c7231a 0px, #e62c22 100%);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  color: #fefefe;
+
+}
+
+/* Overriding default bootstrap */
+
+.btn {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
 }

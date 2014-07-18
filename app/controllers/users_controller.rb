@@ -5,9 +5,10 @@ class UsersController < ApplicationController
   before_filter :admin_user,     only: :destroy
 
   def show
-    @user = User.find(params[:id])
     Micropost.dedupe
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @user = User.find(params[:id])
+    
+    @microposts = @user.microposts.order_by_views.paginate(page: params[:page])
   end
 
 
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to EarBook!"
       redirect_to @user
     else
       render 'new'

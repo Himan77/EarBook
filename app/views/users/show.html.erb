@@ -19,9 +19,13 @@
     <% if @user.microposts.any? %>
       <h3>PlayList (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
-        <%= render @microposts %>
+        <%= render @microposts   %>
       </ol>
       <%= will_paginate (@microposts) %>
+    
+    <% elsif current_user?(@user) && !@user.microposts.any? %>
+      <br><br><br>
+      <h3>Please Upload Your PlayList To Begin With EarBook.</h3>
     <% end %>
   </div>
 </div>

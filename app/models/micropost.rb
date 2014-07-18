@@ -6,7 +6,14 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
   
-  default_scope order: 'microposts.views DESC'
+  #default_scope order: 'microposts.created_at DESC'
+
+  # scope :order_by_created, order("created_at DESC")
+  scope :recent, -> { order(created_at: :desc) }
+  scope :order_by_views, -> { order(views: :desc) }
+  
+
+  
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships
@@ -17,7 +24,7 @@ class Micropost < ActiveRecord::Base
 
   def self.dedupe
     # find all models and group them on keys which should be common
-    grouped = all.group_by{|micropost| [micropost.content,micropost.user_id] }
+    grouped = all.group_by{|micropost| [micropost.video_id,micropost.user_id] }
     
     grouped.values.each do |duplicates|
       # the first one we want to keep right?
