@@ -1,28 +1,43 @@
-== README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h1>Help</h1>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+</p>
+<h4>Input:</h4>
+1. New user creates an account. Signs in. <br>
+	-- User model 
+<br>
+2. Uploads the list of his songs playlist.<br>
+	-- A module which allows the uploading of list of songs and populating the database.
+</br><br>
+<h4>Output:</h4>
+1. Gets a list of songs sorted on the basis of YouTube views.
+<br>
+2. A status feed which lists the updates made by other users who are being followed.<br>
+	-- Using the micropost model. Requires another module which implements "Add to Playlist" feature.
+3. Links of list of users who have similar playlist.
+<br>
+4. Points 
+	-- based on how much of his songs have been added to playlist by his followers.
+</br><br>
+<h4>Process:</h4>
+
+1. YouTube views are used to sort the uploaded list of songs.
+	-- A module which returns the number of YouTube views, video_id etc. given the song and artist name.<br>
+		-- Involves retrieving the video id and number of views.<br>
+		-- Selecting the video id having the maximum number of views.
+
+<br>2. User's playlist is compared with other users playlists and a recommendation list of other users is produced.<br>
+	-- A module which compares a user's playlist with all other users playlists.<br>
+	-- Only those who are not being followed currently are listed.
+	
+Assumption: People having similar taste of songs tend to maintain similar list of songs. 
+<br>3. "Add to Playlist" feature.<br>
+	-- A module to add the selected song to the user's playlist and incrementing the Points of the one who had posted it.
+
+</br><br>
+<h4>Other features:</h4>
+1. A link to most popular playlists of users is listed.<br> 
+	-- based on points scored.
+<br>2. One can like recommend and comment on others playlists.
+<p>
