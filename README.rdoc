@@ -1,7 +1,7 @@
-User Uploads the list of his songs playlist.
+User Uploads the list of his/her songs playlist.
 
-He/She gets a list of songs sorted on the basis of YouTube views.
-A status feed which lists the updates made by other users who are being followed.
-Links of list of users who have similar playlist.
-Points based on how much of his songs have been added to playlist of his followers.
+1. He/She gets a list of songs sorted on the basis of YouTube views.
+2. A status feed which lists the updates made by other users who are being followed.
+3. Links of list of users who have similar playlist.
+4. Points based on how much of his songs have been added to playlist of his followers.
 
